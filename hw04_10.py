@@ -9,5 +9,17 @@ def main():
         new_list.append(result)
     print(new_list)
 
+def second():
+    numbers = [1, 5, 6, 3, 9]
+    new_numbers = []
+    i = len(numbers)
+    v = 0
+    while v < i:
+        result = numbers[v] * -2
+        new_numbers.append(result)
+        v += 1
+        continue
+    print(new_numbers)
+
 if __name__ == '__main__':
-    main()
+    second()

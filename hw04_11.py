@@ -11,5 +11,20 @@ def main():
             continue
     print(f"Количество четных чисел в строке: {numbers}")
 
+def second():
+    numbers = [1, 4, 6, 9, 5, 8]
+    i = len(numbers)
+    v = 0
+    c = 0
+    while v < i:
+        if numbers[v] %2 == 0:
+            c += 1
+            v += 1
+        else:
+            v += 1
+            continue
+    print(f"Количество четных чисел в строке: {c}")
+
+
 if __name__ == '__main__':
-    main()
+    second()
