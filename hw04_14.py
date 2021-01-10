@@ -10,7 +10,7 @@ def main():
     fib_list.append(fib1)
     fib_list.append(fib2)
 
-    n = int(input("Введите количество элементов: "))
+    n = int(input("FOR Method Введите количество элементов: "))
 
     if n < 2:
         quit()
@@ -32,7 +32,7 @@ def second():
     i = 0
     v = 1
 
-    n = int(input("Введите количество элементов: "))
+    n = int(input("WHILE Method Введите количество элементов: "))
 
     if n < 2:
         quit()
@@ -51,4 +51,5 @@ def second():
 
 
 if __name__ == '__main__':
+    main()
     second()

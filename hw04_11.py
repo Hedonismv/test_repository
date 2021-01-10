@@ -9,7 +9,7 @@ def main():
             numbers += 1
         else:
             continue
-    print(f"Количество четных чисел в строке: {numbers}")
+    print(f"FOR method Количество четных чисел в строке: {numbers}")
 
 def second():
     numbers = [1, 4, 6, 9, 5, 8]
@@ -23,8 +23,9 @@ def second():
         else:
             v += 1
             continue
-    print(f"Количество четных чисел в строке: {c}")
+    print(f"WHILE method Количество четных чисел в строке: {c}")
 
 
 if __name__ == '__main__':
+    main()
     second()
