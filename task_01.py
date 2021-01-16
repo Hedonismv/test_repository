@@ -2,68 +2,68 @@
 #переводу:
 
 #DUIMES - SM
-def d_s(a):
+def d_s(a:int) -> int:
     s = a * 2.54
     return f"{a} Дюймов = {round(s,2)} сантиметров \n"
 
 #SM - DUIMES
-def s_d(a):
+def s_d(a:int) -> int:
     s = a / 2.54
     return f"{a} Сантиметров = {round(s,2)} Дюймов \n"
 
 #MIles - KIlometers
-def m_k(a):
+def m_k(a:int) -> int:
     s = a * 1.609
     return f"{a} Миль = {round(s,2)} Километров \n"
 
 #KIlometers - MIles
-def k_m(a):
+def k_m(a:int) -> int:
     s = a / 1.609
     return f"{a} Километров = {round(s, 2)} Миль \n"
 
 
 #Funts - Kilograms
-def f_k(a):
+def f_k(a:int) -> int:
     s = a * 0.453592
     return f"{a} Фунтов = {round(s, 2)} Килограм \n"
 
 
 #Kilograms - Funts
-def k_f(a):
+def k_f(a:int) -> int:
     s = a * 2.20462
     return f"{a} Килограм = {round(s, 2)} Фунтов \n"
 
 #Unci - Gram
-def y_g(a):
+def y_g(a:int) -> int:
     s = a * 28.3495
     return f"{a} Унций = {round(s, 2)} Грамм \n"
 
 
 #Gram - Unci
-def g_y(a):
+def g_y(a:int) -> int:
     s = a / 28.3495
     return f"{a} Грамм = {round(s, 2)} Унций \n"
 
 
 #Gallons - Litres
-def g_l(a):
+def g_l(a:int) -> int:
     s = a * 3.785
     return f"{a} Галлон = {round(s, 2)} Литров \n"
 
 
 #Litres - Gallons
-def l_g(a):
+def l_g(a:int) -> int:
     s = a / 3.785
     return f"{a} Литров = {round(s, 2)} Галлон \n"
 
 
 #Pinta - Litres
-def p_l(a):
+def p_l(a:int) -> int:
     s = a * 0.568261
     return f"{a} Пинты = {round(s, 2)} Литров \n"
 
 #Litres - Pinta
-def l_p(a):
+def l_p(a:int) -> int:
     s = a * 1.75975
     return f"{a} Литров = {round(s, 2)} Пинты \n"
 
