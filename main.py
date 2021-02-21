@@ -6,6 +6,7 @@
 # разделение логики по модулям - ui отдельно, работа с
 # БД отдельно, запуск программы из консоли отдельно и
 # т.д. в зависимости от логики приложения).
+from database.db import *
 
 
 def main():
@@ -13,13 +14,19 @@ def main():
     while user_choice != 0:
         user_choice = int(input('Число в соответствии с пунктом: '))
         if user_choice == 1:
-            pass
+            b_id = int(input('ID - Бренда'))
+            c_model = input('Модель автомобиля')
+            c_r_year = input('Год выпуска')
+            add_the_car(b_id, c_model, c_r_year)
         elif user_choice == 2:
-            pass
+            read_the_car()
         elif user_choice == 3:
-            pass
+            c_id = int(input('ID - Авто'))
+            c_m_name = input('Название модели')
+            update_the_car(c_id, c_m_name)
         elif user_choice == 4:
-            pass
+            c_id = int(input('ID - Авто'))
+            delete_the_car(c_id)
         elif user_choice == 5:
             print('Для начала рекоммендуется выбрать 2, чтобы просмотреть\n'
                   'Все данные базы данных, потом уже удалять,\n'
