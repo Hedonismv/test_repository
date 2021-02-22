@@ -8,11 +8,11 @@ except ConnectionError:
     print('Не удалось подключиться к базе данных')
 
 
-def add_the_car(*car):
+def add_the_car(*car_info):
     try:
         cursor.execute("INSERT INTO "
                        "car (brand_id, car_model, car_release_year)"
-                       " VALUES(?, ?, ?);", car)
+                       " VALUES (%s, %s, %s);", car_info)
         conn.commit()
         print('Машина успешно добавлена в базу данных')
     except Exception as e:
@@ -23,7 +23,7 @@ def add_the_brand(name):
     try:
         cursor.execute("INSERT INTO "
                        "brand (brand_name)"
-                       " VALUES(?);", name)
+                       " VALUES(%s);", name)
         conn.commit()
         print('Бренд успешно добавлен в базу данных')
     except Exception as e:
