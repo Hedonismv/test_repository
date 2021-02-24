@@ -3,7 +3,7 @@
 # 2·4·6·...·n, если n — четное (n > 0 — параметр целого
 # типа). С помощью это функции на ти дво ные
 # факториалы пяти случайных целых чисел.
-import sys
+import sys, pytest
 from os.path import dirname as d
 from os.path import abspath, join
 
@@ -11,7 +11,7 @@ root_dir = d(d(abspath(__file__)))
 sys.path.append(root_dir)
 
 
-def fact2(n: int) -> int:
+def test_fact2(n: int) -> int:
     """Функция вычисляет факториал числа N, в завимисимости
 от того четное оно или нет 
     """
@@ -22,4 +22,4 @@ def fact2(n: int) -> int:
     print(start)
 
 
-fact2(14)
+test_fact2(14)

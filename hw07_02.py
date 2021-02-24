@@ -8,6 +8,7 @@ def palindrome(a: str, b: str, c: str) -> str:
     """Функция проверяет является ли слово палиндромом
 в функцию обязательно передайте 3 аругмента формата строки
     """
+    assert type(a) == str and type(b) == str and type(c) == str, 'Должно быть STR'
     for word in a, b, c:
         pal = word[::-1]
         if word == pal:
