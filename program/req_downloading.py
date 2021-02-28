@@ -102,7 +102,7 @@ def check_image():
     if content_type[0:5] == 'image':
         print('CATCH IMAGE')
     else:
-        raise Exception(f'This url return the {content_type[0:5]} type, this is not image')
+        raise Exception(f'This url return the {content_type} type, this is not image')
 
 
 def check_url():
