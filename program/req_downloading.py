@@ -1,21 +1,26 @@
-import requests
 import os
 import random
 from string import ascii_letters, digits
+import requests
+import main as m
 
 
 def take_url(url: str, behavior=1):
     """One of the main function, take the {url} and {behavior} and raise all check functions
             and after raise the main download function - {download_image}"""
     global req
-    req = requests.get(url)
-    print('REQ INIT')
+    try:
+        req = requests.get(url)
+    except requests.exceptions.MissingSchema as e:
+        print(f"{e}")
+        m.main()
+    # print('REQ INIT')
     check_url()
-    print('URL CHECKED')
+    # print('URL CHECKED')
     check_image()
-    print('IMAGE CHECKED')
+    # print('IMAGE CHECKED')
     check_image_size()
-    print('IMAGE SIZE GOT')
+    # print('IMAGE SIZE GOT')
     check_directory()
     return download_image(url, method, behavior)
 
@@ -33,7 +38,7 @@ def download_image(url, method=0, behavior=1):
     """Main download function takes URL, method, behavior. Generate name if behavior == 2"""
     split_url = url.split('/')
     filename = split_url[-1]
-    print(filename)  # DEBUG
+    # print(filename)  # DEBUG
     print(f"URL1-{url}")
     print(f"METHOD-{method}")
     print(f"BEHAVIOR-{behavior}")
@@ -88,7 +93,7 @@ def download_image(url, method=0, behavior=1):
         pass
 
 
-# download_image('https://cdn.pixabay.com/photo/2021/02/16/10/53/girl-6020659_960_720.jpg', 1, 1)
+# download_image('https://cdn.pixabay.com/photo/2021/02/15/21/47/robin-6019247_960_720.jpg', 1, 1)
 
 
 def check_image():
@@ -97,7 +102,7 @@ def check_image():
     if content_type[0:5] == 'image':
         print('CATCH IMAGE')
     else:
-        print('Cant found and image')
+        raise Exception(f'This url return the {content_type[0:5]} type, this is not image')
 
 
 def check_url():
@@ -105,6 +110,7 @@ def check_url():
     status_code = req.status_code
     if status_code == 404:
         print('This site dnt found')
+        raise ConnectionError('This site not found! Put the correct url!')
     else:
         print('Link worked')
 
