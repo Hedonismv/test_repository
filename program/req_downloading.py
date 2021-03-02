@@ -49,15 +49,14 @@ def generate_name():
 
 
 def download_file(url, filename, generated_name=''):
-    if method == 1:
-        req = requests.get(url, stream=True)
-        with open(f'image/{generated_name + filename}', 'wb') as f:
+    with open(f'image/{generated_name + filename}', 'wb') as f:
+        if method == 1:
+            req = requests.get(url, stream=True)
             for chunk in req.iter_content(chunk_size=50000):  # 50000 = 50 kilobytes
                 print('Downloading...')
                 f.write(chunk)
-    elif method == 2:
-        req = requests.get(url)
-        with open(f'image/{filename}', 'wb') as f:
+        elif method == 2:
+            req = requests.get(url)
             f.write(req.content)
 
 
