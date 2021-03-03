@@ -4,6 +4,8 @@ from string import ascii_letters, digits
 import requests
 import main as m
 from program.config_variables import IMAGES_FORMAT
+import csv
+from datetime import datetime, date, time
 
 
 def check_path(filepath):
@@ -14,6 +16,7 @@ def check_path(filepath):
     print(path_list)
     for link in path_list:
         print(link)
+        take_url(link)
 
 
 def take_url(url: str, behavior=1):
@@ -41,6 +44,13 @@ def check_directory():
         print('Directory created')
 
 
+def write_log(status, link, filename, error=''):
+    now_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    with open('log.csv', mode='a', encoding='utf-8') as a_file:
+        file_writer = csv.writer(a_file, delimiter=',', lineterminator='\r\n')
+        file_writer.writerow([now_time, status, link, filename, error])
+
+
 def generate_name():
     s_random = random.SystemRandom()
     symbols = ascii_letters + digits
@@ -55,9 +65,11 @@ def download_file(url, filename, generated_name=''):
             for chunk in req.iter_content(chunk_size=50000):  # 50000 = 50 kilobytes
                 print('Downloading...')
                 f.write(chunk)
+            write_log(status_code, url, filename)
         elif method == 2:
             req = requests.get(url)
             f.write(req.content)
+            write_log(status_code, url, filename)
 
 
 def download_image(url, behavior=1):
@@ -93,12 +105,14 @@ def check_image():
 
 def check_url():
     """Check the status code to the determine if a link exists"""
+    global status_code
     status_code = req.status_code
     if status_code == 404:
         print('This site dnt found')
-        raise ConnectionError('This site not found! Put the correct url!')
+        return status_code
     else:
-        pass
+        status_code = 'Complete'
+        return status_code
 
 
 def check_image_size():
