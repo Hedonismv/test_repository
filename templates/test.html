@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Users List
+{% endblock %}
+
+{% block body %}
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">This is user list page</h1>
+    </div>
+{% set user_list = ['Tom', 'Jerry', 'Henry'] %}
+    <div class="row mb-3 user-list">
+    {% for user in user_list %}
+        <div class="col-sm-4 themed-grid-col"><a href="{{ url_for('info', id=user) }}">{{ user }}</a></div>
+    {% endfor %}
+    </div>
+{% endblock %}

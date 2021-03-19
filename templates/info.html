@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Users List
+{% endblock %}
+
+{% block body %}
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Hi {{ id }}, now is {{ time }}</h1>
+<!--        {% if time >= evening.time() %}-->
+<!--        <h1 class="display-8">Good Evening!</h1>-->
+<!--        {% elif time >= day.time() and time <= evening.time() %}-->
+<!--        <h1 class="display-8">Good Day!</h1>-->
+<!--        {% elif time >= morning.time() and time <= day.time() %}-->
+<!--        <h1 class="display-8">Good Morning!</h1>-->
+<!--        {% endif %}-->
+    </div>
+{% endblock %}
